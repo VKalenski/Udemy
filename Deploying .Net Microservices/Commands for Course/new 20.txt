@@ -1,0 +1,306 @@
+		
+		
+		az aks get-credentials --admin --name MyManagedCluster --resource-group MyResourceGroup
+		
+		
+		az aks install-cli
+		az aks list
+		
+		**
+		az aks get-upgrades --name euroins-aks-staging --resource-group euroins-rg-staging
+		
+		**
+		az aks upgrade --kubernetes-version 1.24.9 --name euroins-aks-staging --resource-group euroins-rg-staging
+		
+		**
+		az aks nodepool upgrade --cluster-name euroins-aks-staging -g euroins-rg-staging -n agentpool
+		
+		**
+		az aks show --resource-group euroins-rg-staging --name euroins-aks-staging --output table
+		
+		**
+		az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --output table
+		
+		**
+		az aks nodepool update --resource-group euroins-rg-staging --cluster-name euroins-aks-staging --name {{NODEPOOL}}
+		
+		**
+		az aks nodepool update --enable-cluster-autoscaler --min-count 1 --max-count 5 --resource-group euroins-rg-staging --name aks-agentpool-39914187-vmss000005 --cluster-name euroins-aks-staging
+		
+		**
+		az aks nodepool get-upgrades --nodepool-name agentpool --cluster-name euroins-aks-staging --resource-group euroins-rg-staging
+		
+		**
+		az aks upgrade --resource-group euroins-rg-staging --name euroins-aks-staging --node-image-only
+		
+		**
+		az aks show --resource-group euroins-rg-staging --name euroins-aks-staging
+		
+		**
+		az aks nodepool upgrade --resource-group euroins-rg-staging --cluster-name euroins-aks-staging --name agentpool --node-image-only
+		
+		** 
+		az aks upgrade --resource-group euroins-rg-staging --name euroins-aks-staging --kubernetes-version 1.24.9
+		
+		**
+		kubectl get pdb -A
+		
+		
+		
+		
+		
+		
+		**Api Key
+		yv4A5fJsxLZA1F499i7oqS6XJUnsYdt8YyVvg+W2x3t0EPN0Zzw04Lhb4pEpfGHQDnrpEoe4N3xwX5ATojZfbTnqS13s9mTNYtL7UhpJbLU=
+		
+		
+		
+		WIN5
+		
+		
+		
+		
+		--------------------------------------------
+		04.04.2023
+		
+		Първо ingress контролера - през него върви ингреса
+		
+		Няма нужда да имаш контролери, за да имаш ingress - минава си автоматично през kubernetes
+		
+		nginx е контролера - използваме един клас		
+		
+		k -n dev get pods
+		
+		k -n ingress-nginx get pods
+		
+		k get ing
+		
+		на Ubuntu
+		
+		k edit ingress name
+		
+		какъв сървиз в azure портала използваме - azure kubernetes service 
+		
+		helm list
+		
+		cluster ip - сървиси
+		
+		docker build
+		
+		След ъпгрейд клъстера пада
+		
+		kubectl get svc
+		
+		kubectl get svc -n dev
+		
+		
+		
+		
+		
+		npm build
+		
+		
+		
+		
+		
+		за името на пода е необходим deploy - оттам идват и имената на подовете
+		
+		
+		
+		docker system prone
+		
+		
+		ubectl cluster-info
+			
+			kubectl create
+			
+			kubectl proxy
+			
+			kubectl describe secret -n kube-system
+			
+			
+			
+			
+				KUBERNETES
+
+	cat ~/.kube/config	
+
+	kubectl get namespace
+
+	kubectl namespace create some-name
+
+	kubectl get pods
+
+	kubectl get pods --watch
+
+	kubectl describe pod pod-name
+
+	kubectl get services
+
+	kubectl delete svc service-name
+
+	kubectl get deploy
+
+	kubectl apply -f .\deployment.yml
+
+	kubectl apply -f .\deployment.yml --namespace some-name
+
+	kubectl delete deploy deploy-name
+
+	kubectl scale deployments/app-name-deployment --replicas=1
+
+===========================================================================
+
+		DOCKER
+
+docker ps
+
+docker ps -a
+
+docker login euroins.azurecr.io
+
+docker build -t euroins.azurecr.io/euroinsauthenticator .
+docker build -t euroins.azurecr.io/identityservice .
+docker build -t euroins.azurecr.io/notificationservice .
+docker build -t euroins.azurecr.io/policyservice .
+docker build -t euroins.azurecr.io/gateway .
+docker build -t euroins.azurecr.io/basketservice .
+docker build -t euroins.azurecr.io/paymentservice .
+docker build -t euroins.azurecr.io/vehicleservice .
+docker build -t euroins.azurecr.io/sandboxservice .
+
+docker build -t euroins.azurecr.io/ssp-vehicle-stg .
+
+docker build -t euroins.azurecr.io/health-api-stg .
+
+
+docker image ls              -----> view info
+
+docker push euroins.azurecr.io/euroinsauthenticator
+docker push euroins.azurecr.io/identityservice
+docker push euroins.azurecr.io/smsservice
+docker push euroins.azurecr.io/policyservice
+docker push euroins.azurecr.io/gateway
+docker push euroins.azurecr.io/vehicleservice
+
+docker push euroins.azurecr.io/ssp-vehicle-stg
+
+docker push euroins.azurecr.io/health-api-stg
+
+docker pull euroins.azurecr.io/euroinsauthenticator:latest
+docker pull euroins.azurecr.io/identityservice:latest
+docker pull euroins.azurecr.io/notificationservice:latest
+docker pull euroins.azurecr.io/policyservice:latest
+docker pull euroins.azurecr.io/gateway:latest
+docker pull euroins.azurecr.io/basketservice:latest
+docker pull euroins.azurecr.io/paymentservice:latest
+docker pull euroins.azurecr.io/cachingservice:latest
+docker pull euroins.azurecr.io/documentservice:latest
+docker pull euroins.azurecr.io/healthidentity:latest
+docker pull euroins.azurecr.io/healthportal:latest
+docker pull euroins.azurecr.io/selfserviceportal:latest
+docker pull euroins.azurecr.io/protoservice:latest
+
+docker pull euroins.azurecr.io/ssp-vehicle-stg:latest
+
+
+docker run -d -p 80 euroins.azurecr.io/euroinsauthenticator
+docker run -d -p 80 euroins.azurecr.io/identityservice
+docker run -d -p 80 euroins.azurecr.io/smsservice
+docker run -d -p 80 euroins.azurecr.io/policyservice
+docker run -d -p 80 euroins.azurecr.io/gateway
+
+
+
+
+docker container ls
+
+docker stop 0f1262bd1285
+
+docker rm CONTAINER_ID
+
+docker kill CONTAINER_ID
+
+
+
+		
+		
+		
+		
+		
+		За проследяване на логовете
+		kubectl logs -f -n dev health-identity-deployment-dev-7cc4f4848d-5tglp
+		
+		
+		За проследяване на логовете
+		kubectl logs -f health-identity-deployment-dev-7cc4f4848d-5tglp
+		
+		
+		За достъпване на редис
+		kubectl -n dev exec --stdin --tty notifications-deployment-dev-7965cbcbfb-rn8bt -- sh
+		cat appsettings.json
+		
+		ДА сепроследи сайта дали работи
+		tracert https://devssp.eui-api.elando.eu/
+		
+		За изтриване
+		kubectl delete deployment
+		
+		
+		За достъпване на ингреси
+		kubectl -n dev describe ingress ingress-portals
+		
+		--------------------------------------------
+		За достъпване на пода
+		kubectl -n dev exec --stdin --tty policy-deployment-dev-d47b9957-kmltm -- sh
+		ls
+		cat <filename.type> - без това -> cat appsettings.json
+		
+		
+		
+		--------------------------------------------
+		След дърпане на репо:
+		
+		npm install
+		npm update
+		npm start
+		
+		
+		
+		
+		--------------------------------------------
+		за тестване през телефона
+		
+		npm install -g localtunnel
+		
+		lt --port 8000
+		
+		
+		
+		v.16
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
