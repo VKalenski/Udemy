@@ -1,0 +1,12 @@
+name: 10 - External Events
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+    types: [build]
+
+jobs:
+  echo-a-string:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo ${{ github.event.client_payload.env }}
