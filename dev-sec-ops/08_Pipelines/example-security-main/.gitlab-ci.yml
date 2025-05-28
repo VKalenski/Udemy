@@ -1,0 +1,83 @@
+# This file is a template, and might need editing before it works on your project.
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
+
+# This is a sample GitLab CI/CD configuration file that should run without any modifications.
+# It demonstrates a basic 3 stage CI/CD pipeline. Instead of real tests or scripts,
+# it uses echo commands to simulate the pipeline execution.
+#
+# A pipeline is composed of independent jobs that run scripts, grouped into stages.
+# Stages run in sequential order, but jobs within stages run in parallel.
+#
+# For more information, see: https://docs.gitlab.com/ee/ci/yaml/index.html#stages
+
+image: docker:19.03.12
+
+services:
+  - docker:19.03.12-dind
+
+before_script:
+  - docker info
+  - apk --update add npm                 # Install npm so we can use npm install
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - test
+  - security
+  - deploy
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - echo "Compiling the code..."
+    - echo "Compile complete."
+    - npm install            # This job will run npm install in our example but could be anything
+  artifacts:
+    paths:
+    - node_modules          # Save the node_modules folder so we can use it in the security-test-sca job
+
+unit-test-job:   # This job runs in the test stage.
+  stage: test    # It only starts when the job in the build stage completes successfully.
+  script:
+    - echo "Running unit tests... This will take about 60 seconds."
+    #- sleep 60
+    - echo "Code coverage is 90%"
+
+lint-test-job:   # This job also runs in the test stage.
+  stage: test    # It can run at the same time as unit-test-job (in parallel).
+  script:
+   - echo "Linting code... This will take about 10 seconds."
+    #- sleep 10
+   - echo "No lint issues found." #test comment for commit
+
+security-test-dast:   # This job runs in the security stage.
+  stage: security   
+  script:
+    - echo "Security DAST testing..."
+    - docker run -d -p 3000:3000 --name juice-shop bkimminich/juice-shop  # Run juice-shop so we have something to test
+    - containerip=$(docker inspect -f "{{ .NetworkSettings.Networks.bridge.IPAddress }}" juice-shop)   # Get container IP so we can test it 
+    - docker run -t --name dast owasp/zap2docker-stable zap-baseline.py -t http://$containerip:3000 || failure=true  #run DAST testing against juice shop container
+    - if [[ "$(docker logs dast >& container-logs ; cat container-logs | grep 'WARN-NEW. [1-9]\d*'  | wc -l)" -gt 0 ]]; then echo 'Failing job due to identified failures'; exit 1; else echo "no issues found"; exit 0; fi  # If issues are found, fail job, if no issues are found pass job
+
+security-test-sast:
+  stage: security
+  script:
+    - echo "Security SAST testing..."
+    - ls -l
+    - docker run --name sast -v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/src horuszup/horusec-cli:v2.7 horusec start -p /src -P $(pwd) || failure=true
+    - if [[ "$(docker logs sast >& container-logs ; cat container-logs | grep 'Vulnerability MEDIUM is. [1-9]\d*'  | wc -l)" -gt 0 ]]; then echo 'Failing job due to identified failures'; exit 1; else echo "no issues found"; exit 0; fi # If issues are found, fail job, if no issues are found pass job
+
+security-test-sca:
+  stage: security
+  script:
+    - echo "Security SCA testing..."
+    - docker run --name sca --env SNYK_TOKEN -v $(pwd):/app snyk/snyk:node || failure=true
+    - if [[ "$(docker logs sca >& container-logs ; cat container-logs | grep 'found [1-9]\d* issues' | wc -l)" -gt 0 ]]; then echo 'Failing job due to identified failures'; exit 1; else echo "no issues found"; exit 0; fi # If issues are found, fail job, if no issues are found pass job
+
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  script:
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
