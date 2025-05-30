@@ -1,0 +1,4 @@
+{
+  "attackerId": 6,
+  "opponentId": 7
+}

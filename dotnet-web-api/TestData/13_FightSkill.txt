@@ -1,0 +1,25 @@
+Test data is below
+
+---
+
+{
+  "attackerId": 7,
+  "opponentId": 6,
+  "skillId": 1
+}
+
+---
+
+{
+  "attackerId": 0,
+ "opponentId": 0,
+  "skillId": 0
+}
+
+---
+
+{
+  "attackerId": 0,
+  "opponentId": 0,
+ "skillId": 0
+}

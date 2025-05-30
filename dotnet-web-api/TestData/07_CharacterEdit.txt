@@ -1,0 +1,49 @@
+Test data is below
+
+---
+
+{
+  "id": 1,
+  "name": "Frodo",
+  "hitPoints": 100,
+  "strength": 10,
+  "defense": 10,
+  "intelligence": 10,
+  "class": "Knight"
+}
+
+---
+
+{
+  "id": 2,
+  "name": "Frodo",
+  "hitPoints": 100,
+  "strength": 10,
+  "defense": 10,
+  "intelligence": 10,
+  "class": "Knight"
+}
+
+---
+
+{
+  "id": 3,
+  "name": "Frodo",
+  "hitPoints": 100,
+  "strength": 10,
+  "defense": 10,
+  "intelligence": 10,
+  "class": "Knight"
+}
+
+---
+
+{
+  "id": 4,
+  "name": "Frodo",
+  "hitPoints": 100,
+  "strength": 10,
+  "defense": 10,
+  "intelligence": 10,
+  "class": "Knight"
+}
