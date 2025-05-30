@@ -1,0 +1,5 @@
+C:\Users\vilislav.kalenski\Documents\Kalenski_GitHub\Codility\.NET\Iterations\obj\Debug\net6.0\Iterations.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vilislav.kalenski\Documents\Kalenski_GitHub\Codility\.NET\Iterations\obj\Debug\net6.0\Iterations.AssemblyInfoInputs.cache
+C:\Users\vilislav.kalenski\Documents\Kalenski_GitHub\Codility\.NET\Iterations\obj\Debug\net6.0\Iterations.AssemblyInfo.cs
+C:\Users\vilislav.kalenski\Documents\Kalenski_GitHub\Codility\.NET\Iterations\obj\Debug\net6.0\Iterations.csproj.CoreCompileInputs.cache
+C:\Users\vilislav.kalenski\Documents\Kalenski_GitHub\Codility\.NET\Iterations\obj\Debug\net6.0\Iterations.sourcelink.json
