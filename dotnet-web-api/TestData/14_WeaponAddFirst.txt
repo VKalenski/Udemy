@@ -1,0 +1,41 @@
+Test data is below
+
+---
+
+{
+  "name": "The Master Sword",
+  "damage": 10,
+  "characterId": 1
+}
+
+---
+
+{
+  "name": "Fireball",
+  "damage": 30,
+  "characterId": 2
+}
+
+---
+
+{
+  "name": "Frenzy",
+  "damage": 20,
+  "characterId": 3
+}
+
+---
+
+{
+  "name": "Blizzard",
+  "damage": 50,
+  "characterId": 4
+}
+
+---
+
+{
+  "name": "Crystal Wand",
+  "damage": 10,
+  "characterId": 5
+}

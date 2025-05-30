@@ -1,0 +1,55 @@
+
+Test data is below
+
+---
+
+Test Data I
+
+{
+  "name": "Frodo",
+  "hitPoints": 100,
+  "strength": 20,
+  "defense": 10,
+  "intelligence": 10,
+  "class": "Mage"
+}
+
+---
+
+Test Data II
+
+{
+  "name": "Sam",
+  "hitPoints": 100,
+  "strength": 10,
+  "defense": 10,
+  "intelligence": 10,
+  "class": "Knight"
+}
+
+---
+---
+
+Test Data III
+
+{
+  "name": "Raistlin",
+  "hitPoints": 100,
+  "strength": 5,
+  "defense": 5,
+  "intelligence": 20,
+  "class": "Mage"
+}
+
+---
+
+Test Data IV
+
+{
+  "name": "Frodo",
+  "hitPoints": 100,
+  "strength": 15,
+  "defense": 10,
+  "intelligence": 10,
+  "class": "Knight"
+}

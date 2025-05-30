@@ -1,0 +1,36 @@
+Test data is below
+
+--- 
+
+{
+  "characterId": 0,
+  "skillId": 0
+}
+
+---
+
+{
+  "characterId": 0,
+  "skillId": 0
+}
+
+---
+
+{
+  "characterId": 0,
+  "skillId": 0
+}
+
+---
+
+{
+  "characterId": 0,
+  "skillId": 0
+}
+
+---
+
+{
+  "characterId": 0,
+ "skillId": 0
+}

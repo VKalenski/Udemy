@@ -1,0 +1,6 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=.\\SqlExpress; Database=dotnet-rpg-8; Trusted_Connection=true; TrustServerCertificate=true;" // MSSQL
+    "DefaultConnection": "Host=localhost;Port=5432;Database=dotnet-rpg-8;Username=postgres;Password=123;;" // Postgres
+  }
+}

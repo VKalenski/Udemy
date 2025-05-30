@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-rpg-7", "dotnet-rpg-7\dotnet-rpg-7.csproj", "{D80872F0-A804-40EE-8B48-423743146AD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9D3CE499-A412-46FB-9650-7268DD01586E}"
+	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
+		.gitignore = .gitignore
+		DotNet-RPG.postman_collection.json = DotNet-RPG.postman_collection.json
+		HowToUse.md = HowToUse.md
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-rpg-6", "dotnet-rpg-6\dotnet-rpg-6.csproj", "{CE9010A7-91EA-459E-B096-194E6383A685}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-rpg-3.1", "dotnet-rpg-3.1\dotnet-rpg-3.1.csproj", "{76A2F39B-3B82-41DD-AC93-06CC218F3B52}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-rpg-5", "dotnet-rpg-5\dotnet-rpg-5.csproj", "{F6AE3583-63AA-43A3-A5D7-96C639AE3E05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{4596B7E1-1AD4-4EF9-BA60-29BA8553E01E}"
+	ProjectSection(SolutionItems) = preProject
+		TestData\01_Register.txt = TestData\01_Register.txt
+		TestData\02_Login.txt = TestData\02_Login.txt
+		TestData\03_CharacterGetAll.txt = TestData\03_CharacterGetAll.txt
+		TestData\04_CharacterGetById.txt = TestData\04_CharacterGetById.txt
+		TestData\05_CharacterAdd.txt = TestData\05_CharacterAdd.txt
+		TestData\06_CharacterSkill.txt = TestData\06_CharacterSkill.txt
+		TestData\07_CharacterEdit.txt = TestData\07_CharacterEdit.txt
+		TestData\08_CharacterDeleteById.txt = TestData\08_CharacterDeleteById.txt
+		TestData\09_FightGetAll.txt = TestData\09_FightGetAll.txt
+		TestData\10_Fight.txt = TestData\10_Fight.txt
+		TestData\11_FightWeaponFirst.txt = TestData\11_FightWeaponFirst.txt
+		TestData\12_FightWeaponSecond.txt = TestData\12_FightWeaponSecond.txt
+		TestData\13_FightSkill.txt = TestData\13_FightSkill.txt
+		TestData\14_WeaponAddFirst.txt = TestData\14_WeaponAddFirst.txt
+		TestData\15_WeaponAddSecond.txt = TestData\15_WeaponAddSecond.txt
+		TestData\ConnectionStrings.txt = TestData\ConnectionStrings.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-rpg-8", "dotnet-rpg-8\dotnet-rpg-8.csproj", "{2407ED35-CE06-4E99-8370-1E221AAAF0AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D80872F0-A804-40EE-8B48-423743146AD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D80872F0-A804-40EE-8B48-423743146AD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D80872F0-A804-40EE-8B48-423743146AD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D80872F0-A804-40EE-8B48-423743146AD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE9010A7-91EA-459E-B096-194E6383A685}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE9010A7-91EA-459E-B096-194E6383A685}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE9010A7-91EA-459E-B096-194E6383A685}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE9010A7-91EA-459E-B096-194E6383A685}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76A2F39B-3B82-41DD-AC93-06CC218F3B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76A2F39B-3B82-41DD-AC93-06CC218F3B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76A2F39B-3B82-41DD-AC93-06CC218F3B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76A2F39B-3B82-41DD-AC93-06CC218F3B52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6AE3583-63AA-43A3-A5D7-96C639AE3E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6AE3583-63AA-43A3-A5D7-96C639AE3E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6AE3583-63AA-43A3-A5D7-96C639AE3E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6AE3583-63AA-43A3-A5D7-96C639AE3E05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2407ED35-CE06-4E99-8370-1E221AAAF0AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2407ED35-CE06-4E99-8370-1E221AAAF0AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2407ED35-CE06-4E99-8370-1E221AAAF0AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2407ED35-CE06-4E99-8370-1E221AAAF0AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4596B7E1-1AD4-4EF9-BA60-29BA8553E01E} = {9D3CE499-A412-46FB-9650-7268DD01586E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F47DD394-490B-4F08-8C95-7D31C6FEEB62}
+	EndGlobalSection
+EndGlobal

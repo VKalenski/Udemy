@@ -1,0 +1,3044 @@
+{
+	"info": {
+		"_postman_id": "8b329b59-68fa-44f4-a692-ccf9aeceff7e",
+		"name": "DotNet-RPG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19402395",
+		"_collection_link": "https://dark-crater-965234.postman.co/workspace/New-Team-Workspace~5944731c-edbf-4b38-a9bf-22c9746500bc/collection/19402395-8b329b59-68fa-44f4-a692-ccf9aeceff7e?action=share&source=collection_link&creator=19402395"
+	},
+	"item": [
+		{
+			"name": "http",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"userThree\",\r\n  \"password\": \"Password\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// User I\r\n// {\r\n//   \"username\": \"userOne\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n/// ---\r\n\r\n// User II\r\n// {\r\n//   \"username\": \"userTwo\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n// ---\r\n\r\n// User III\r\n// {\r\n//   \"username\": \"userThree\",\r\n//   \"password\": \"Password\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Auth/Register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Auth",
+										"Register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"userOne\",\r\n  \"password\": \"Password\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// User I\r\n// {\r\n//   \"username\": \"userOne\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n/// ---\r\n\r\n// User II\r\n// {\r\n//   \"username\": \"userTwo\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n// ---\r\n\r\n// User III\r\n// {\r\n//   \"username\": \"userThree\",\r\n//   \"password\": \"Password\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Auth/Login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Auth",
+										"Login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Character",
+					"item": [
+						{
+							"name": "Character Get All",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/api/Character/GetAll",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"api",
+										"Character",
+										"GetAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Get By Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// In URL:\r\n// https://localhost:44310/api/Character/1\r\n// https://localhost:44310/api/Character/2\r\n// https://localhost:44310/api/Character/3",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/api/Character/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"api",
+										"Character",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Add",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Frodo\",\r\n  \"hitPoints\": 100,\r\n  \"strength\": 20,\r\n  \"defense\": 10,\r\n  \"intelligence\": 10,\r\n  \"class\": \"Mage\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 20,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Mage\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Sam\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Raistlin\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 5,\r\n//   \"defense\": 5,\r\n//   \"intelligence\": 20,\r\n//   \"class\": \"Mage\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 15,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/api/Character",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Skill",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"characterId\": 6,\r\n  \"skillId\": 1\r\n}\r\n\r\n// Test data is below\r\n// --- \r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//  \"skillId\": 0\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/api/Character",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Edit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"name\": \"Frodo\",\r\n  \"hitPoints\": 100,\r\n  \"strength\": 10,\r\n  \"defense\": 10,\r\n  \"intelligence\": 10,\r\n  \"class\": \"Knight\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"id\": 1,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 2,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 3,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 4,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/api/Character",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Delete By Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// In URL:\r\n// https://localhost:44310/api/Character/1\r\n// https://localhost:44310/api/Character/2\r\n// https://localhost:44310/api/Character/3",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/api/Character/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"api",
+										"Character",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Fight",
+					"item": [
+						{
+							"name": "Fight Get All",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Fight",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Fight"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"characterIds\": [\r\n    0\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Fight",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Fight"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Weapon First",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 7,\r\n  \"opponentId\": 6\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Fight/Weapon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Fight",
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Weapon Second",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 6,\r\n  \"opponentId\": 7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Fight/Weapon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Fight",
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Skill",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 7,\r\n  \"opponentId\": 6,\r\n  \"skillId\": 1\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//   \"opponentId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//  \"opponentId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//   \"opponentId\": 0,\r\n//  \"skillId\": 0\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Fight/Skill",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Fight",
+										"Skill"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Weapon",
+					"item": [
+						{
+							"name": "Weapon Add First",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"The Master Sword\",\r\n  \"damage\": 10,\r\n  \"characterId\": 6\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"The Master Sword\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 1\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Fireball\",\r\n//   \"damage\": 30,\r\n//   \"characterId\": 2\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frenzy\",\r\n//   \"damage\": 20,\r\n//   \"characterId\": 3\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Blizzard\",\r\n//   \"damage\": 50,\r\n//   \"characterId\": 4\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Crystal Wand\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 5\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Weapon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Weapon Add Second",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Frenzy\",\r\n  \"damage\": 20,\r\n  \"characterId\": 7\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"The Master Sword\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 1\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Fireball\",\r\n//   \"damage\": 30,\r\n//   \"characterId\": 2\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frenzy\",\r\n//   \"damage\": 20,\r\n//   \"characterId\": 3\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Blizzard\",\r\n//   \"damage\": 50,\r\n//   \"characterId\": 4\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Crystal Wand\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 5\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5136/Weapon",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5136",
+									"path": [
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "https",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"userThree\",\r\n  \"password\": \"Password\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// User I\r\n// {\r\n//   \"username\": \"userOne\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n/// ---\r\n\r\n// User II\r\n// {\r\n//   \"username\": \"userTwo\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n// ---\r\n\r\n// User III\r\n// {\r\n//   \"username\": \"userThree\",\r\n//   \"password\": \"Password\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Auth/Register",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Auth",
+										"Register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"userOne\",\r\n  \"password\": \"Password\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// User I\r\n// {\r\n//   \"username\": \"userOne\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n/// ---\r\n\r\n// User II\r\n// {\r\n//   \"username\": \"userTwo\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n// ---\r\n\r\n// User III\r\n// {\r\n//   \"username\": \"userThree\",\r\n//   \"password\": \"Password\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Auth/Login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Auth",
+										"Login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Character",
+					"item": [
+						{
+							"name": "Character Get All",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/api/Character/GetAll",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"api",
+										"Character",
+										"GetAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Get By Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// In URL:\r\n// https://localhost:44310/api/Character/1\r\n// https://localhost:44310/api/Character/2\r\n// https://localhost:44310/api/Character/3",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/api/Character/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"api",
+										"Character",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Add",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Frodo\",\r\n  \"hitPoints\": 100,\r\n  \"strength\": 20,\r\n  \"defense\": 10,\r\n  \"intelligence\": 10,\r\n  \"class\": \"Mage\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 20,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Mage\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Sam\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Raistlin\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 5,\r\n//   \"defense\": 5,\r\n//   \"intelligence\": 20,\r\n//   \"class\": \"Mage\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 15,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/api/Character",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Skill",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"characterId\": 6,\r\n  \"skillId\": 1\r\n}\r\n\r\n// Test data is below\r\n// --- \r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//  \"skillId\": 0\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/api/Character",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Edit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"name\": \"Frodo\",\r\n  \"hitPoints\": 100,\r\n  \"strength\": 10,\r\n  \"defense\": 10,\r\n  \"intelligence\": 10,\r\n  \"class\": \"Knight\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"id\": 1,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 2,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 3,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 4,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/api/Character",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Delete By Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// In URL:\r\n// https://localhost:44310/api/Character/1\r\n// https://localhost:44310/api/Character/2\r\n// https://localhost:44310/api/Character/3",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/api/Character/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"api",
+										"Character",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Fight",
+					"item": [
+						{
+							"name": "Fight Get All",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Fight",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Fight"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"characterIds\": [\r\n    0\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Fight",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Fight"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Weapon First",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 7,\r\n  \"opponentId\": 6\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Fight/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Fight",
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Weapon Second",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 6,\r\n  \"opponentId\": 7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Fight/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Fight",
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Skill",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 7,\r\n  \"opponentId\": 6,\r\n  \"skillId\": 1\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//   \"opponentId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//  \"opponentId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//   \"opponentId\": 0,\r\n//  \"skillId\": 0\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Fight/Skill",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Fight",
+										"Skill"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Weapon",
+					"item": [
+						{
+							"name": "Weapon Add First",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"The Master Sword\",\r\n  \"damage\": 10,\r\n  \"characterId\": 6\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"The Master Sword\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 1\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Fireball\",\r\n//   \"damage\": 30,\r\n//   \"characterId\": 2\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frenzy\",\r\n//   \"damage\": 20,\r\n//   \"characterId\": 3\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Blizzard\",\r\n//   \"damage\": 50,\r\n//   \"characterId\": 4\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Crystal Wand\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 5\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Weapon Add Second",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Frenzy\",\r\n  \"damage\": 20,\r\n  \"characterId\": 7\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"The Master Sword\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 1\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Fireball\",\r\n//   \"damage\": 30,\r\n//   \"characterId\": 2\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frenzy\",\r\n//   \"damage\": 20,\r\n//   \"characterId\": 3\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Blizzard\",\r\n//   \"damage\": 50,\r\n//   \"characterId\": 4\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Crystal Wand\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 5\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:7114/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "7114",
+									"path": [
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "IIS Express",
+			"item": [
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"userThree\",\r\n  \"password\": \"Password\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// User I\r\n// {\r\n//   \"username\": \"userOne\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n/// ---\r\n\r\n// User II\r\n// {\r\n//   \"username\": \"userTwo\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n// ---\r\n\r\n// User III\r\n// {\r\n//   \"username\": \"userThree\",\r\n//   \"password\": \"Password\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Auth/Register",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Auth",
+										"Register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": false
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\": \"userOne\",\r\n  \"password\": \"Password\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// User I\r\n// {\r\n//   \"username\": \"userOne\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n/// ---\r\n\r\n// User II\r\n// {\r\n//   \"username\": \"userTwo\",\r\n//   \"password\": \"Password\"\r\n// }\r\n\r\n// ---\r\n\r\n// User III\r\n// {\r\n//   \"username\": \"userThree\",\r\n//   \"password\": \"Password\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Auth/Login",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Auth",
+										"Login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Character",
+					"item": [
+						{
+							"name": "Character Get All",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/api/Character/GetAll",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"api",
+										"Character",
+										"GetAll"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Get By Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// In URL:\r\n// https://localhost:44310/api/Character/1\r\n// https://localhost:44310/api/Character/2\r\n// https://localhost:44310/api/Character/3",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/api/Character/1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"api",
+										"Character",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Add",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Frodo\",\r\n  \"hitPoints\": 100,\r\n  \"strength\": 20,\r\n  \"defense\": 10,\r\n  \"intelligence\": 10,\r\n  \"class\": \"Mage\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 20,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Mage\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Sam\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Raistlin\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 5,\r\n//   \"defense\": 5,\r\n//   \"intelligence\": 20,\r\n//   \"class\": \"Mage\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 15,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/api/Character",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Skill",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"characterId\": 6,\r\n  \"skillId\": 1\r\n}\r\n\r\n// Test data is below\r\n// --- \r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"characterId\": 0,\r\n//  \"skillId\": 0\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/api/Character",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Edit",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": 6,\r\n  \"name\": \"Frodo\",\r\n  \"hitPoints\": 100,\r\n  \"strength\": 10,\r\n  \"defense\": 10,\r\n  \"intelligence\": 10,\r\n  \"class\": \"Knight\"\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"id\": 1,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 2,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 3,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"id\": 4,\r\n//   \"name\": \"Frodo\",\r\n//   \"hitPoints\": 100,\r\n//   \"strength\": 10,\r\n//   \"defense\": 10,\r\n//   \"intelligence\": 10,\r\n//   \"class\": \"Knight\"\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/api/Character",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"api",
+										"Character"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Character Delete By Id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// In URL:\r\n// https://localhost:44310/api/Character/1\r\n// https://localhost:44310/api/Character/2\r\n// https://localhost:44310/api/Character/3",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/api/Character/8",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"api",
+										"Character",
+										"8"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Fight",
+					"item": [
+						{
+							"name": "Fight Get All",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Fight",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Fight"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"characterIds\": [\r\n    0\r\n  ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Fight",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Fight"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Weapon First",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 7,\r\n  \"opponentId\": 6\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Fight/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Fight",
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Weapon Second",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 6,\r\n  \"opponentId\": 7\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Fight/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Fight",
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Fight Skill",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"attackerId\": 7,\r\n  \"opponentId\": 6,\r\n  \"skillId\": 1\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//   \"opponentId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//  \"opponentId\": 0,\r\n//   \"skillId\": 0\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"attackerId\": 0,\r\n//   \"opponentId\": 0,\r\n//  \"skillId\": 0\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Fight/Skill",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Fight",
+										"Skill"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Weapon",
+					"item": [
+						{
+							"name": "Weapon Add First",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"The Master Sword\",\r\n  \"damage\": 10,\r\n  \"characterId\": 6\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"The Master Sword\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 1\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Fireball\",\r\n//   \"damage\": 30,\r\n//   \"characterId\": 2\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frenzy\",\r\n//   \"damage\": 20,\r\n//   \"characterId\": 3\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Blizzard\",\r\n//   \"damage\": 50,\r\n//   \"characterId\": 4\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Crystal Wand\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 5\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Weapon Add Second",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"// Tests\r",
+											"\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Success property is true\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData.success).to.be.true;\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is less than 500ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response time is within an acceptable range\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"Response is an object with data, success, and message properties\", function () {\r",
+											"    var jsonData = pm.response.json();\r",
+											"    pm.expect(jsonData).to.be.an('object').that.has.all.keys('data', 'success', 'message');\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Frenzy\",\r\n  \"damage\": 20,\r\n  \"characterId\": 7\r\n}\r\n\r\n// Test data is below\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"The Master Sword\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 1\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Fireball\",\r\n//   \"damage\": 30,\r\n//   \"characterId\": 2\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Frenzy\",\r\n//   \"damage\": 20,\r\n//   \"characterId\": 3\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Blizzard\",\r\n//   \"damage\": 50,\r\n//   \"characterId\": 4\r\n// }\r\n\r\n// ---\r\n\r\n// {\r\n//   \"name\": \"Crystal Wand\",\r\n//   \"damage\": 10,\r\n//   \"characterId\": 5\r\n// }\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44310/Weapon",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44310",
+									"path": [
+										"Weapon"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIyIiwidW5pcXVlX25hbWUiOiJ1c2VyT25lIiwibmJmIjoxNjk0MTc5MDc2LCJleHAiOjE2OTQyNjU0NzYsImlhdCI6MTY5NDE3OTA3Nn0.-mH4omshGu28ZyRUcN_Z4hqPHNWd7qW9jd8PBRIxLJues-4-BZ2ArBd_gYH48mmuq9fIYeo1av-qE_mjDDFkMQ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

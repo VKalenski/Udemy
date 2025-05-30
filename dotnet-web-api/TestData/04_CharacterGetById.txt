@@ -1,0 +1,6 @@
+1. Get All Characters By Id: */Character/Id
+
+In URL:
+https://localhost:44310/api/Character/1
+https://localhost:44310/api/Character/2
+https://localhost:44310/api/Character/3

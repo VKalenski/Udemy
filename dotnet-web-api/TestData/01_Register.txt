@@ -1,0 +1,28 @@
+1. Create account: */Auth/Register
+
+---
+
+User I
+
+{
+  "username": "userOne",
+  "password": "Password"
+}
+
+ ---
+
+User II
+
+{
+  "username": "userTwo",
+  "password": "Password"
+}
+
+---
+
+User III
+
+{
+  "username": "userThree",
+  "password": "Password"
+}
